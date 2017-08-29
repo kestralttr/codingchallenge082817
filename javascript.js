@@ -28,21 +28,17 @@
   function makeRequest(inputField) {
 
     let searchParam = getSearchParam(inputField);
-    console.log("searchParam: ", searchParam);
     if(searchParam === "") {
-      console.log("SEARCHPARAM IS EMPTY!");
       return;
     }
 
     let finalUrl = baseUrl + activeRequestType + searchParam;
-    console.log("finalUrl: ", finalUrl);
 
     $.ajax({
       url: finalUrl,
       method: method
     })
     .done(function(data) {
-      console.log("data: ", data);
       if(activeRequestType === requestTypes.movieID || activeRequestType === requestTypes.personID) {
         displayItem(data, $(".results-area"));
         $(".input-field").val("");
@@ -87,7 +83,6 @@
 
     modalBackground.click(function(e) {
       e.stopPropagation();
-      console.log("trying to close modal");
       modalContainer.css("display", "none");
     });
 
@@ -98,7 +93,6 @@
     });
 
     let searchSelectors = $(".search-selector");
-    console.log(searchSelectors);
     let newRequestType;
 
     searchSelectors.click(function(e) {
@@ -107,7 +101,6 @@
       $(this).css("color","red");
       newRequestType = e.target.dataset.requesttype;
       activeRequestType = requestTypes[newRequestType];
-      console.log("activeRequestType: ", activeRequestType);
     });
 
   });
