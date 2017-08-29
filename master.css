@@ -1,3 +1,7 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 h1 {
   font-size: 3rem;
   text-align: center;
@@ -6,6 +10,14 @@ h1 {
 h2 {
   font-size: 2rem;
   text-align: center;
+  text-decoration: underline;
+}
+
+h3 {
+  font-size:2rem;
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;;
 }
 
 .input-section {
@@ -24,7 +36,6 @@ h2 {
 
 .search-selector{
   cursor: pointer;
-  border:1px solid grey;
 }
 
 .input-form {
@@ -43,4 +54,50 @@ h2 {
 .list-item {
   text-align: center;
   display:block;
+  cursor: pointer;
+}
+
+.modal-container {
+  display:none;
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:5;
+}
+
+.modal-background {
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color: rgba(0,0,0,0.7);
+  cursor:pointer;
+  z-index:10;
+}
+
+.modal {
+  position: fixed;
+  top:10%;
+  left:10%;
+  right:10%;
+  bottom:10%;
+  background-color:white;
+  z-index:15;
+  border-radius: 20px;
+}
+
+.modal-image {
+  height:60%;
+  text-align: center;
+  background-color: black;
+  background-position: center;
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+.modal-text {
+  margin: 10px 10px 10px 10px;
 }
