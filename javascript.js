@@ -1,6 +1,6 @@
 
 (function() {
-  let baseUrl = "http://www.theimdbapi.org/api/";
+  let baseUrl = "https://www.theimdbapi.org/api/";
   let method = "GET";
   let currentCollection = [];
   let modalContainer = $(".modal-container");
@@ -45,10 +45,12 @@
       console.log("data: ", data);
       if(activeRequestType === requestTypes.movieID || activeRequestType === requestTypes.personID) {
         displayItem(data, $(".results-area"));
+        $(".input-field").val("");
       } else {
         data.forEach(function(obj) {
           displayItem(obj, $(".results-area"));
         });
+        $(".input-field").val("");
       }
     })
     .fail(function(xhr) {
