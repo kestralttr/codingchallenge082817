@@ -104,3 +104,15 @@ h3 {
 .modal-text {
   margin: 10px 10px 10px 10px;
 }
+
+.spinner {
+  display:none;
+  width:300px;
+  height:210px;
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translateX(-150px);
+  z-index:20;
+  background: url('filmreelspinner.gif') no-repeat center;
+}
