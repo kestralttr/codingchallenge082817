@@ -3,6 +3,11 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
 .input-section {
   background-color: blue;
   padding-top: 40px;
@@ -16,4 +21,8 @@ h1 {
 .input-field {
   width:100%;
   max-width:50%;
+}
+
+.results-section {
+  background-color:green;
 }
