@@ -9,10 +9,16 @@
   </head>
   <body>
 
-    <h1 class="page-title">IMBD Search</h1>
+    <h1 class="page-title">IMBD Search!</h1>
 
     <section class="input-section">
       <form class="input-form">
+        <div class="search-selector-container">
+          <div data-requestType="movieTitle" class="search-selector">Title</div>
+          <div data-requestType="person" class="search-selector">Person</div>
+          <div data-requestType="movieID" class="search-selector">Movie ID</div>
+          <div data-requestType="personID" class="search-selector">Person ID</div>
+        </div>
         <input class="input-field"/><br>
         <input type="submit" class="submit-button"/>
       </form>

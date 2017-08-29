@@ -2,12 +2,13 @@
 (function() {
   let baseUrl = "http://www.theimdbapi.org/api/";
   let method = "GET";
+  let currentCollection = [];
 
   let requestTypes = {
     movieTitle:"find/movie?title=",
     person:"find/person?name=",
     movieID:"movie?movie_id=",
-    actorID:"person?person_id="
+    personID:"person?person_id="
   };
 
   let activeRequestType = requestTypes.movieTitle;
@@ -34,23 +35,45 @@
       method: method
     })
     .done(function(data) {
-      console.log("IMBD data returned");
-      console.log(data);
+      $(".results-area").empty();
+      data.forEach(function(obj) {
+        displayMovie(obj, $(".results-area"));
+      });
     })
     .fail(function(xhr) {
       return xhr;
     });
   }
 
+  function displayMovie(movie, resultsArea) {
+    resultsArea.append($("<div class='list-item'>" + movie.title + "</div>"));
+  }
+
   $("document").ready(function() {
     let submitButton = $(".submit-button");
     let inputField = $(".input-field");
+    let resultsArea = $(".results-area");
+    $(".search-selector").first().css("color","red");
 
     submitButton.click(function(e) {
       e.preventDefault();
       makeRequest(inputField);
     });
 
+    let searchSelectors = $(".search-selector");
+    console.log(searchSelectors);
+    let newRequestType;
+
+    searchSelectors.click(function(e) {
+      e.preventDefault();
+      $(".search-selector").css("color","black");
+      console.log($(this));
+      $(this).css("color","red");
+      newRequestType = e.target.dataset.requesttype;
+      console.log(newRequestType);
+      activeRequestType = requestTypes[newRequestType];
+      console.log("activeRequestType: ", activeRequestType);
+    });
 
   });
 
